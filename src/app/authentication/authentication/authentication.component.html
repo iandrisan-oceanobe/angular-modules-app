@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <h2>Sign In</h2>
+  <hr />
+  <app-custom-input-def
+    type="text"
+    formControlName="email"
+    label="Email"
+    [parentForm]="loginForm"
+    fieldName="email"
+  ></app-custom-input-def>
+  <app-custom-input-def
+    type="password"
+    formControlName="password"
+    label="Password"
+    [parentForm]="loginForm"
+    fieldName="password"
+  ></app-custom-input-def>
+  <br /><button mat-raised-button color="primary" [disabled]="!loginForm.valid">
+    Log in
+  </button>
+  <h3 *ngIf="loginError" style="color: red">{{ loginError }}</h3>
+</form>

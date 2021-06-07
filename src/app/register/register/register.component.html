@@ -1,0 +1,42 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h2>Sign Up</h2>
+  <hr />
+  <app-custom-input-def
+    type="text"
+    formControlName="email"
+    label="Email"
+    [parentForm]="registerForm"
+    fieldName="email"
+  ></app-custom-input-def>
+  <app-custom-input-def
+    type="password"
+    formControlName="password"
+    label="Password"
+    [parentForm]="registerForm"
+    fieldName="password"
+  ></app-custom-input-def>
+  <app-custom-input-def
+    type="text"
+    formControlName="name"
+    label="Name"
+    [parentForm]="registerForm"
+    fieldName="name"
+  ></app-custom-input-def>
+  <app-custom-input-def
+    type="text"
+    formControlName="phone"
+    label="Phone number"
+    [parentForm]="registerForm"
+    fieldName="phone"
+  ></app-custom-input-def>
+
+  <h3 *ngIf="registerResponse" style="color: red">{{ registerResponse }}</h3>
+  <br /><button
+    mat-raised-button
+    color="primary"
+    [disabled]="!registerForm.valid"
+    style="margin-top: 10px"
+  >
+    Register
+  </button>
+</form>

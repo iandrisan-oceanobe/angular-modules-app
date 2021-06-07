@@ -16,15 +16,24 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@fa/app/*": ["src/app/*"],
+      "@fa/shared/*": ["src/app/shared/*"],
+      "@fa/authentication/*": ["src/app/authentication/*"],
+      "@fa/dashboard/*": ["src/app/dashboard/*"],
+      "@fa/material/*": ["src/app/material/*"],
+      "@fa/navigation/*": ["src/app/navigation/*"],
+      "@fa/register/*": ["src/app/register/*"],
+      "@fa/users/*": ["src/app/users/*"],
+      "@fa/state/*": ["src/app/state/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictDomEventTypes": false
   }
 }

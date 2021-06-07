@@ -1,0 +1,40 @@
+<mat-form-field class="input-full-width">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [type]="type"
+    [value]="val"
+    [disabled]="disabled"
+    (input)="onChange($event.target.value)"
+    (blur)="onTouch()"
+  />
+</mat-form-field>
+
+<ng-container *ngIf="formField.dirty">
+  <p *ngIf="formField.hasError('required')" style="color: red">
+    {{ label }} is <strong>required</strong>
+  </p>
+  <p
+    *ngIf="!formField.hasError('required') && formField.hasError('email')"
+    style="color: red"
+  >
+    {{ label }} is not valid
+  </p>
+  <p
+    *ngIf="!formField.hasError('required') && formField.hasError('minlength')"
+    style="color: red"
+  >
+    {{ label }} is too short
+  </p>
+  <p
+    *ngIf="
+      !formField.hasError('required') &&
+      formField.hasError('invalidPhoneNumber')
+    "
+    style="color: red"
+  >
+    {{ label }} is not valid
+  </p>
+
+  <br />
+</ng-container>

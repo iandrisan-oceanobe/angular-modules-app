@@ -1,0 +1,32 @@
+<form [formGroup]="editForm" (submit)="onSubmit()">
+  <h2>Edit user</h2>
+  <hr />
+  <app-custom-input-def
+    formControlName="email"
+    label="Email"
+    [parentForm]="editForm"
+    fieldName="email"
+  ></app-custom-input-def>
+  <app-custom-input-def
+    formControlName="name"
+    label="Name"
+    [parentForm]="editForm"
+    fieldName="name"
+  ></app-custom-input-def>
+  <app-custom-input-def
+    formControlName="phone"
+    label="Phone number"
+    [parentForm]="editForm"
+    fieldName="phone"
+  ></app-custom-input-def>
+  <br />
+  <app-custom-select
+    formControlName="role"
+    label="Role"
+    [options]="roles"
+  ></app-custom-select>
+  <!-- <h3 *ngIf="registerResponse" style="color: red">{{ registerResponse }}</h3> -->
+  <br /><button mat-raised-button color="primary" style="margin-top: 10px">
+    Save
+  </button>
+</form>
